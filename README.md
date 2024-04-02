@@ -94,7 +94,7 @@ Using the Instagram Posts Downloader script is straightforward. Simply follow th
    All posts downloaded successfully from the profile: username_here
    ```
 
-## Notes
+## Disclaimer
 
 - This script is intended for educational purposes and should be used in compliance with Instagram's terms of service.
 - Remember to use this script responsibly and always respect the privacy and intellectual property rights of others when downloading content from Instagram.
