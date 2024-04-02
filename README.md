@@ -1,6 +1,6 @@
 # Instagram Posts Downloader
 
-The Instagram Posts Downloader is a Python script that allows you to easily download all posts, including images and videos, from any Instagram profile. Whether you want to backup your own Instagram content or save posts from your favorite influencers or friends, this script provides a convenient solution.
+The `insta_posts_downloader` is a Python script that allows you to easily download all posts, including images and videos, from any Instagram profile. Whether you want to backup your own Instagram content or save posts from your favorite influencers or friends, this script provides a convenient solution.
 
 The main purpose of this script is to simplify the process of downloading Instagram posts in bulk. Instead of manually saving each post one by one, you can use this script to automate the download process and save time. This can be particularly useful in various scenarios, such as:
 
@@ -57,7 +57,7 @@ Using the Instagram Posts Downloader script is straightforward. Simply follow th
 1. Run the script using Python:
 
    ```bash
-   python instagram_photo_downloader.py
+   python insta_posts_downloader.py
    ```
 
 2. When prompted, enter the Instagram username of the profile you want to download posts from:
