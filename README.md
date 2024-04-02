@@ -1,68 +1,105 @@
 # Instagram Posts Downloader
 
-The `instagram-posts-downloader` is a Python utility designed to facilitate the efficient downloading of Instagram posts, including images and videos, from publicly accessible or followed private user accounts. This script, developed with Python and leveraging the `Instaloader` module, offers a streamlined approach to archiving Instagram content from specified users directly to your local storage.
+The Instagram Posts Downloader is a Python script that allows you to easily download all posts, including images and videos, from any Instagram profile. Whether you want to backup your own Instagram content or save posts from your favorite influencers or friends, this script provides a convenient solution.
+
+The main purpose of this script is to simplify the process of downloading Instagram posts in bulk. Instead of manually saving each post one by one, you can use this script to automate the download process and save time. This can be particularly useful in various scenarios, such as:
+
+- Backing up your own Instagram posts for safekeeping
+- Archiving posts from a specific Instagram profile for reference or analysis
+- Collecting images and videos from Instagram for personal or professional projects
 
 ## Features
 
-- **Easy to Use**: Simple setup and execution process.
-- **Comprehensive Downloading**: Downloads all posts, including photos and videos, from the specified user account.
-- **Robust Error Handling**: Gracefully handles common errors, such as non-existent profiles or access issues with private accounts.
+The Instagram Posts Downloader script comes with the following key features:
 
-## Prerequisites
+1. **Support for Public and Private Profiles**: The script allows you to download posts from both public and private Instagram profiles. For private profiles, you need to provide your own Instagram credentials and ensure that you have been granted access to the profile.
 
-Before deploying the Instagram Posts Downloader, ensure your system meets the following requirements:
+2. **Bulk Download**: With this script, you can download all posts from an Instagram profile at once, saving you the effort of manually downloading each post individually.
 
-- Python 3.x installed on your device.
-- The Instaloader module installed in your Python environment. If not present, it can be installed via pip with the following command:
+3. **Easy-to-Use Interface**: The script provides a user-friendly command-line interface that guides you through the process of entering the necessary information, such as the Instagram username and your login credentials (if required).
 
-```bash
-pip install instaloader
-```
+4. **Organized Download**: The downloaded posts are automatically saved in a directory named after the Instagram profile, keeping your downloads organized and easily accessible.
+
+5. **Error Handling**: The script includes robust error handling to deal with common issues that may arise during the download process, such as invalid credentials, private profiles, or network errors. Informative error messages are provided to help you troubleshoot any problems.
+
+
+## Requirements
+
+To set up the Instagram Photo Downloader on your system, follow these steps:
+
+- Python 3.10+
+- `instaloader` module (install with `pip install instaloader`)
 
 ## Installation
 
-To install the Instagram Posts Downloader, execute the following steps:
+1. Clone this repository to your local machine:
 
-1. Clone the repository to your preferred local directory:
+   ```bash
+   git clone https://github.com/javedali99/instagram-posts-downloader.git
+   ```
 
-```bash
-git clone https://github.com/javedali99/instagram-posts-downloader.git
-```
+2. Navigate to the project directory:
 
-2. Navigate into the cloned repository's directory:
+   ```bash
+   cd instagram-posts-downloader
+   ```
 
-```bash
-cd instagram-posts-downloader
-```
+3. Install the required dependencies:
 
-## Configuration and Usage
+   ```bash
+   pip install instaloader
+   ```
 
-Follow these detailed steps to configure and utilize the Instagram Posts Downloader:
+## Usage
 
-1. Open the `insta_downloader.py` script in a text editor of your choice.
-2. Search for the line `username = 'username_here'`.
-3. Replace `'username_here'` with the actual Instagram username of the profile from which you wish to download posts.
-4. Save the modifications and close the editor.
-5. Execute the script with the following command:
+Using the Instagram Posts Downloader script is straightforward. Simply follow these steps:
 
-```bash
-python insta_downloader.py
-```
+1. Run the script using Python:
 
-The script will commence the download process, saving all posts from the specified Instagram account into a directory named after the username, located in your current working directory.
+   ```bash
+   python instagram_photo_downloader.py
+   ```
 
-## Exception Handling
+2. When prompted, enter the Instagram username of the profile you want to download posts from:
 
-The script includes advanced exception handling mechanisms to address and inform the user about potential issues:
+   ```
+   Enter the Instagram username to download posts from: username_here
+   ```
 
-- **ProfileNotExistsException**: Notifies the user if the specified Instagram username does not exist.
-- **PrivateProfileNotFollowedException**: Alerts the user if the targeted profile is private and they haven't been granted access.
-- **General Exceptions**: Catches and reports unforeseen errors, ensuring the user is informed of any issues during the execution process.
+3. If the profile is private and you need to log in to download posts, enter "yes" when prompted:
 
-## Disclaimer
+   ```
+   Do you need to log in to download posts? (yes/no): yes
+   ```
 
-- This script is designed for educational purposes and should be used responsibly.
-- Always respect the privacy and copyright of Instagram users. Do not download or redistribute content without permission.
-- Users should adhere to Instagram's Terms of Service and respect the privacy and copyright of the content owners.
+4. If you choose to log in, enter your Instagram username and password when prompted:
+
+   ```
+   Enter your Instagram username: your_username
+   Enter your Instagram password: your_password
+   ```
+
+5. The script will start downloading all posts from the specified profile into a directory with the same name as the Instagram username.
+
+6. Once the download is complete, you will see a success message:
+
+   ```
+   All posts downloaded successfully from the profile: username_here
+   ```
+
+## Notes
+
+- This script is intended for educational purposes and should be used in compliance with Instagram's terms of service.
+- Always respect the privacy and intellectual property rights of others when downloading content from Instagram. Do not download or redistribute content without permission.
 - Unauthorized use or distribution of downloaded content is strictly prohibited.
-- The script works for public profiles. Downloading content from private profiles requires logging in with an Instagram account that follows the private profile, which is not covered in this script.
+- If you encounter any issues or have questions, please open an issue on the GitHub repository.
+
+Remember to use this script responsibly and respect the privacy and intellectual property rights of others when downloading content from Instagram.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+## Citations:
+> Ali, J. (2024). Instagram posts downloader [Computer software]. GitHub. https://github.com/javedali99/instagram-posts-downloader
