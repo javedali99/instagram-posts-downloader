@@ -35,7 +35,7 @@ The Instagram Posts Downloader script comes with the following key features:
 To set up the Instagram Photo Downloader on your system, follow these steps:
 
 - Python 3.10+
-- `instaloader` module (install with `pip install instaloader`)
+- `instaloader` module 
 
 ## Installation
 
