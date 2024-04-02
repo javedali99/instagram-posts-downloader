@@ -100,6 +100,7 @@ Using the Instagram Posts Downloader script is straightforward. Simply follow th
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-
+<!--
 ## Citations:
 > Ali, J. (2024). Instagram posts downloader [Computer software]. GitHub. https://github.com/javedali99/instagram-posts-downloader
+-->
