@@ -1,5 +1,5 @@
 """
-A script to download all pictures from an Instagram account using the instaloader module.
+A script to download all pictures from an Instagram account.
 
 Author: Javed Ali 
 Email: javedali28@gmail.com
