@@ -61,8 +61,6 @@ The script includes advanced exception handling mechanisms to address and inform
 
 ## Disclaimer
 
-This tool is intended for educational and personal use only. Users should adhere to Instagram's Terms of Service and respect the privacy and copyright of the content owners. Unauthorized use or distribution of downloaded content is strictly prohibited.
-
 - This script is designed for educational purposes and should be used responsibly.
 - Always respect the privacy and copyright of Instagram users. Do not download or redistribute content without permission.
 - Users should adhere to Instagram's Terms of Service and respect the privacy and copyright of the content owners.
