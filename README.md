@@ -63,3 +63,8 @@ The script includes advanced exception handling mechanisms to address and inform
 
 This tool is intended for educational and personal use only. Users should adhere to Instagram's Terms of Service and respect the privacy and copyright of the content owners. Unauthorized use or distribution of downloaded content is strictly prohibited.
 
+- This script is designed for educational purposes and should be used responsibly.
+- Always respect the privacy and copyright of Instagram users. Do not download or redistribute content without permission.
+- Users should adhere to Instagram's Terms of Service and respect the privacy and copyright of the content owners.
+- Unauthorized use or distribution of downloaded content is strictly prohibited.
+- The script works for public profiles. Downloading content from private profiles requires logging in with an Instagram account that follows the private profile, which is not covered in this script.
