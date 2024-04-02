@@ -90,11 +90,11 @@ Using the Instagram Posts Downloader script is straightforward. Simply follow th
 ## Notes
 
 - This script is intended for educational purposes and should be used in compliance with Instagram's terms of service.
-- Always respect the privacy and intellectual property rights of others when downloading content from Instagram. Do not download or redistribute content without permission.
+- Remember to use this script responsibly and always respect the privacy and intellectual property rights of others when downloading content from Instagram.
+- Do not download or redistribute content without permission.
 - Unauthorized use or distribution of downloaded content is strictly prohibited.
 - If you encounter any issues or have questions, please open an issue on the GitHub repository.
 
-Remember to use this script responsibly and respect the privacy and intellectual property rights of others when downloading content from Instagram.
 
 ## License
 
