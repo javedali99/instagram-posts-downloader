@@ -1,73 +1,120 @@
 """
+A script to download all pictures from an Instagram account using the instaloader module.
 
-A script to download Instagram posts from a specified user account using the Instaloader module.
-
-Author: Javed Ali (javedali28@gmail.com)
+Author: Javed Ali 
+Email: javedali28@gmail.com
 Date: April 2, 2024
 
-This script provides a straightforward way to download all posts (images and videos) from a specified Instagram user account. 
-It utilizes the Instaloader library to interface with Instagram, fetching and downloading posts directly to the local filesystem.
+This script allows users to download all posts (images and videos) from a specified Instagram
+profile, whether public or private. For private profiles, the user must provide their own
+Instagram credentials and must have been granted access to the private profile.
 
-Usage:
-    1. Install Instaloader if you haven't already: `pip install instaloader`
-    2. Modify the 'username' variable in the __main__ section to the target Instagram username.
-    3. Execute this script with Python.
+The script prompts the user for the Instagram username they wish to download content from.
+If the profile is private, the user is asked if they need to log in and, if so, to provide
+their Instagram username and password.
+
+The script then uses the instaloader library to download all posts from the specified profile
+into a folder named after the username in the current working directory.
 
 Requirements:
-    - Python 3.x
-    - Instaloader
+- Python 3.x
+- instaloader module (install with `pip install instaloader`)
 
-License:
-    - MIT License
+Features:
+- Supports downloading from public and private Instagram profiles.
+- Requires user login for accessing private profiles, with support for two-factor authentication.
+- Provides informative error messages for common issues like bad credentials or non-existent profiles.
+
+Usage:
+1. Ensure Python 3.x and Instaloader are installed on your system.
+2. Run the script in a terminal or command prompt.
+3. Follow the on-screen prompts to enter the target Instagram username and login credentials if necessary.
+
+License: MIT License
 
 NOTE: This script is intended for educational and personal use. Please respect the privacy and copyright of Instagram users and comply with Instagram's terms of use.
-
 """
 
+# Import all required libraries
 import instaloader
+import getpass
+import sys
+import os
 
-def download_instagram_posts(username):
+def get_credentials():
     """
-    Downloads all posts from the specified Instagram user account.
-
-    Attempts to download all Instagram posts from the given username. It handles several common issues,
-    including non-existent profiles and private profiles. For private profiles, the user running the script
-    must be an approved follower and logged in via Instaloader.
-
-    Parameters:
-    - username (str): The username of the Instagram account from which to download posts.
-
-    Exceptions:
-    - ProfileNotExistsException: Raised if the specified username does not exist.
-    - PrivateProfileNotFollowedException: Raised if the profile is private and the user is not followed.
-    - Exception: Catches other general exceptions that may occur.
+    Prompts the user for their Instagram login credentials.
 
     Returns:
-    - None
+        tuple: A tuple containing the user's Instagram username and password.
+    """
+    username = input("Enter your Instagram username: ").strip()
+    password = getpass.getpass("Enter your Instagram password: ").strip()
+    return username, password
+
+def download_posts(loader, profile):
+    """
+    Downloads all posts from the given Instagram profile using the specified loader.
+
+    Args:
+        loader (instaloader.Instaloader): An instance of the Instaloader class.
+        profile (instaloader.Profile): The Instagram profile to download posts from.
+    """
+    # Create a directory with the same name as the Instagram profile
+    os.makedirs(profile.username, exist_ok=True)
+    
+    # Download all posts from the profile
+    for post in profile.get_posts():
+        loader.download_post(post, target=profile.username)
+
+def main():
+    """
+    The main function that orchestrates the entire process of downloading Instagram posts.
     """
     # Create an instance of the Instaloader class
-    L = instaloader.Instaloader()
+    loader = instaloader.Instaloader()
 
+    # Prompt for the Instagram profile to download from
+    target_profile = input("Enter the Instagram username to download posts from: ").strip()
+
+    # Check if the user wants to log in (required for private profiles)
+    login_choice = input("Do you need to log in to download posts? (yes/no): ").strip().lower()
+    
+    if login_choice == 'yes':
+        # Get the user's Instagram login credentials
+        username, password = get_credentials()
+        
+        try:
+            # Attempt to log in to Instagram
+            loader.login(username, password)
+            print("Login successful!")
+        except instaloader.exceptions.BadCredentialsException:
+            print("Error: Invalid Instagram username or password.")
+            sys.exit(1)
+        except instaloader.exceptions.TwoFactorAuthRequiredException:
+            print("Error: Two-factor authentication is required.")
+            sys.exit(1)
+        except instaloader.exceptions.InvalidArgumentException:
+            print("Error: Invalid argument provided.")
+            sys.exit(1)
+    
     try:
-        # Attempt to load the profile using the given username
-        profile = instaloader.Profile.from_username(L.context, username)
-
-        # Iterate through and download all posts from the profile
-        for post in profile.get_posts():
-            L.download_post(post, target=profile.username)
-        print(f"Successfully downloaded all posts from {username}.")
-
-    # Handle case where the profile does not exist
+        # Retrieve the Instagram profile using the given username
+        profile = instaloader.Profile.from_username(loader.context, target_profile)
+        
+        # Download all posts from the profile
+        download_posts(loader, profile)
+        
+        print(f"All posts downloaded successfully from the profile: {target_profile}")
+        
     except instaloader.exceptions.ProfileNotExistsException:
-        print(f"The profile {username} does not exist. Please check the username and try again.")
-    # Handle case where the profile is private and the user is not followed
+        print(f"Error: The profile '{target_profile}' does not exist.")
+        
     except instaloader.exceptions.PrivateProfileNotFollowedException:
-        print(f"The profile {username} is private. You need to follow this account and login with your Instagram credentials.")
-    # Handle other general exceptions
+        print(f"Error: The profile '{target_profile}' is private and requires following.")
+        
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"An error occurred: {str(e)}")
 
 if __name__ == "__main__":
-    # The Instagram account you want to download pictures from. Replace 'username_here' with the actual username.
-    username = 'username_here'
-    download_instagram_posts(username)
+    main()
